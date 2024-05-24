@@ -6,6 +6,17 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "schema":"myapp",
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ]
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -15,12 +26,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.codewithbeto.uber",
+      
+        "infoPlist": {
+          "NSLocationAlwaysAndWhenInUseUsageDescription": "REASON_FOR_REQUEST",
+          "UIBackgroundModes": ["location", "fetch"]
+      
+      }
     },
     "android": {
+      "package":"com.codewithbeto.uber",
+     
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "android": {
+        "permissions": ["ACCESS_BACKGROUND_LOCATION"]
       }
     },
     "web": {
